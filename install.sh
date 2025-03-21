@@ -1,27 +1,22 @@
 #!/bin/bash
 
-sudo apt-get install -y docker.io
+echo "🔧 Installing necessary packages..."
+sudo apt-get update
+sudo apt-get install -y curl npm
 
-sudo apt-get install -y curl
 
-sudo apt-get install -y npm
-
-sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
-
-sudo chmod +x /usr/local/bin/docker-compose
-
+echo "📦 Cloning Mobius repository..."
 git clone https://github.com/IoTKETI/Mobius.git
-
 cd Mobius
 
+echo "📌 Installing npm dependencies..."
 sudo npm install
-
+sudo npm audit fix --force
 cd ..
 
-sudo docker-compose up --no-start
+echo "🚢 Starting Mobius Docker containers..."
+docker compose up --no-start
 
-echo -e "\n===========Result of Mobius docker install==============\n"
-sudo docker-compose ps
+echo -e "\n===========Result of Mobius Docker install==============\n"
+docker compose ps
 echo -e "\n========================================================\n"
-
-
