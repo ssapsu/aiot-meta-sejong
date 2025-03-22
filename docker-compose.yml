@@ -35,8 +35,7 @@ services:
   mqtt:
     image: eclipse-mosquitto:latest
     ports:
-      - 1883:1883
-    network_mode: "host"
+      - 18830:1883
     volumes:
       - ./etc/mosquitto:/etc/mosquitto:ro
       - ./var/log/mosquitto:/var/log/mosquitto:rw
