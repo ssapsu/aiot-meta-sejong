@@ -6,7 +6,7 @@ BROKER_HOST = "localhost"
 BROKER_PORT = 1883  # Docker 매핑 포트 (실제 Mosquitto 내부 포트는 1883)
 
 # 실제 알림이 발행되는 토픽 (와일드카드를 사용한 예)
-TOPIC = "/oneM2M/req/+/ae_test_cnt_test2/json"
+TOPIC = "/oneM2M/req/+/meta_sejong_meta_robot/json"
 
 
 def on_connect(client, userdata, flags, rc):
