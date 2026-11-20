@@ -33,11 +33,10 @@ services:
         condition: service_healthy
 
   mqtt:
-    image: eclipse-mosquitto:latest
-    ports:
-      - 18830:1883
+    image: eclipse-mosquitto:2
+    network_mode: "host"
     volumes:
-      - ./etc/mosquitto:/etc/mosquitto:ro
+      - ./etc/mosquitto:/mosquitto/config:ro
       - ./var/log/mosquitto:/var/log/mosquitto:rw
     depends_on:
       db:
